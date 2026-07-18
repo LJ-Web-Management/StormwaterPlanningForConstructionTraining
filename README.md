@@ -28,7 +28,7 @@ js/main.js       — mobile nav toggle, FAQ accordion, per-course enroll form UX
 - Course pricing ($379.99/seat, 7 hours each), certificate validity windows (24 months for
   QSP Practitioner, 36 months for SWPPP Preparer), and curriculum content are drawn from the
   live hazwoper-osha.com course pages as of 2026-07-18.
-- Contact email (`info@stormwaterplanningtraining.us`) and the "SPCT" brand mark are
+- Contact email (`info@stormwaterplanning.us`) and the "SPCT" brand mark are
   placeholders in the same pattern PMMT used — swap in the real domain/brand once one exists.
   The phone number (1-866-429-6742) is the real HAZWOPER-OSHA support line shown on the
   source course pages.

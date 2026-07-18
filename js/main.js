@@ -35,6 +35,40 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
+  // Pricing toggle (filters the "Get Your Team Trained Today" cards by course)
+  var pricingToggle = document.querySelector('.pricing-toggle');
+  var pricingGrid = document.getElementById('pricingGrid');
+  if (pricingToggle && pricingGrid) {
+    var pricingCards = pricingGrid.querySelectorAll('.pricing-card');
+    var toggleButtons = pricingToggle.querySelectorAll('.pricing-toggle-btn');
+
+    var selectCourse = function (course) {
+      toggleButtons.forEach(function (btn) {
+        var isActive = btn.dataset.course === course;
+        btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
+
+      pricingCards.forEach(function (card) {
+        card.classList.toggle('is-visible', card.dataset.course === course);
+      });
+    };
+
+    toggleButtons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        selectCourse(btn.dataset.course);
+      });
+    });
+
+    // Any "Enroll Now" link tagged with a course (course cards, hero, etc.)
+    // pre-selects that course's pricing card before the page scrolls to #pricing.
+    document.querySelectorAll('a[data-course]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        selectCourse(link.dataset.course);
+      });
+    });
+  }
+
   // Enroll forms (seat count only; each course has its own form/pricing)
   document.querySelectorAll('.enroll-form').forEach(function (enrollForm) {
     var formId = enrollForm.id;
