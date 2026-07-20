@@ -80,7 +80,8 @@ document.addEventListener('DOMContentLoaded', function () {
     if (seatsInput && formTotal) {
       var updatePricing = function () {
         var seats = Math.max(1, parseInt(seatsInput.value, 10) || 1);
-        formTotal.textContent = 'Total: $' + (seats * basePrice).toFixed(2);
+        var total = (seats * basePrice).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        formTotal.textContent = 'Total: $' + total;
       };
       seatsInput.addEventListener('input', updatePricing);
       updatePricing();
