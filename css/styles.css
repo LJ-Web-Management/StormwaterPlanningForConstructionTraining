@@ -438,6 +438,42 @@ table{border-collapse:collapse;width:100%;}
   border-top:1px solid var(--gray-200);
 }
 .format-note a{color:var(--teal-600);font-weight:700;}
+
+.bulk-pricing{position:relative;}
+.bulk-pricing-toggle{
+  width:100%;display:flex;align-items:center;gap:.6rem;
+  background:var(--gray-50);
+  border:1.5px solid var(--gray-200);
+  border-radius:8px;
+  padding:.65rem .9rem;
+  font-family:inherit;font-size:.85rem;font-weight:700;color:var(--navy-800);
+  cursor:pointer;
+  transition:border-color .15s ease, background-color .15s ease;
+}
+.bulk-pricing-toggle:hover{border-color:var(--teal-500);}
+.bulk-pricing-toggle span{flex-grow:1;text-align:left;}
+.bulk-pricing-icon{flex-shrink:0;color:var(--teal-600);}
+.bulk-pricing-chevron{flex-shrink:0;transition:transform .2s ease;}
+.bulk-pricing-toggle[aria-expanded="true"] .bulk-pricing-chevron{transform:rotate(180deg);}
+.bulk-pricing-panel{
+  margin-top:8px;
+  border:1px solid var(--gray-200);
+  border-radius:8px;
+  overflow:hidden;
+}
+.bulk-pricing-table{width:100%;border-collapse:collapse;font-size:.83rem;}
+.bulk-pricing-table thead th{
+  background:var(--navy-900);color:var(--white);
+  text-align:left;padding:.5rem .75rem;
+  font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.4px;
+}
+.bulk-pricing-table thead th:last-child{text-align:right;}
+.bulk-pricing-table td{padding:.5rem .75rem;border-top:1px solid var(--gray-200);color:var(--gray-700);}
+.bulk-pricing-table td:last-child{text-align:right;font-weight:700;color:var(--navy-900);}
+.bulk-pricing-table tbody tr:nth-child(even){background:var(--gray-50);}
+.bulk-pricing-table tbody tr.active-tier{background:rgba(14,165,160,.14);}
+.bulk-pricing-table tbody tr.active-tier td{color:var(--teal-600);}
+
 .form-total{
   display:flex;justify-content:space-between;align-items:center;
   padding:.85rem 1rem;
@@ -446,6 +482,7 @@ table{border-collapse:collapse;width:100%;}
   border-radius:8px;
   font-size:1rem;font-weight:800;color:var(--navy-900);
 }
+.form-total-rate{font-size:.78rem;color:var(--gray-500);text-align:center;margin:-6px 0 0;}
 
 .form-success{
   margin:20px 0 0;
