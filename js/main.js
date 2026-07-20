@@ -104,9 +104,12 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('.enroll-form').forEach(function (enrollForm) {
     var seatsInput = enrollForm.querySelector('input[type="number"]');
     var formTotal = enrollForm.querySelector('.form-total');
-    var formTotalRate = enrollForm.querySelector('.form-total-rate');
     var formSuccess = document.getElementById(enrollForm.dataset.successTarget);
     var basePrice = parseFloat(enrollForm.dataset.pricePerSeat);
+
+    var pricingCard = enrollForm.closest('.pricing-card');
+    var priceOriginal = pricingCard ? pricingCard.querySelector('.price-original') : null;
+    var priceAmount = pricingCard ? pricingCard.querySelector('.price-amount') : null;
 
     var bulkToggle = enrollForm.querySelector('.bulk-pricing-toggle');
     var bulkPanel = enrollForm.querySelector('.bulk-pricing-panel');
@@ -146,8 +149,13 @@ document.addEventListener('DOMContentLoaded', function () {
         var perSeat = tierPrice(basePrice, tier);
 
         formTotal.textContent = 'Total: $' + formatMoney(seats * perSeat);
-        if (formTotalRate) {
-          formTotalRate.textContent = '$' + formatMoney(perSeat) + ' / seat' + (tier.discount > 0 ? ' (bulk rate)' : '');
+
+        if (priceAmount) {
+          priceAmount.textContent = '$' + formatMoney(perSeat);
+        }
+        if (priceOriginal) {
+          priceOriginal.hidden = tier.discount === 0;
+          priceOriginal.textContent = '$' + formatMoney(basePrice);
         }
 
         bulkRows.forEach(function (tr) {

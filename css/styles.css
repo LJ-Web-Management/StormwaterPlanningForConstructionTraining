@@ -482,7 +482,6 @@ table{border-collapse:collapse;width:100%;}
   border-radius:8px;
   font-size:1rem;font-weight:800;color:var(--navy-900);
 }
-.form-total-rate{font-size:.78rem;color:var(--gray-500);text-align:center;margin:-6px 0 0;}
 
 .form-success{
   margin:20px 0 0;
