@@ -330,6 +330,9 @@ table{border-collapse:collapse;width:100%;}
 
 /* ---------- Audience ---------- */
 .audience-card{
+  display:flex;
+  align-items:center;
+  justify-content:center;
   background:var(--white);
   border:1px solid var(--gray-200);
   border-radius:var(--radius);
@@ -665,4 +668,5 @@ table{border-collapse:collapse;width:100%;}
   .footer-grid{grid-template-columns:1fr;gap:36px;}
   .curriculum-list li{gap:14px;}
   .compare-table th,.compare-table td{padding:12px 14px;font-size:.85rem;}
+  .header-inner .logo-text{display:none;}
 }
